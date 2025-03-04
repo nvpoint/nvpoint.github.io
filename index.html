@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Danh sách short link và URL đích
+        const links = {
+            "google": "https://www.google.com",
+            "github": "https://github.com",
+            "chatgpt": "https://chat.openai.com",
+            "fb": "https://www.facebook.com/phongngu00"
+        };
+
+        // Lấy tham số 'link' từ URL (ví dụ: ?link=google)
+        const urlParams = new URLSearchParams(window.location.search);
+        const shortLink = urlParams.get("link");
+
+        // Nếu short link có trong danh sách, redirect
+        if (shortLink && links[shortLink]) {
+            window.location.href = links[shortLink];
+        } else {
+            document.write("<h2>404 - Short link not found!</h2>");
+        }
+    </script>
+</head>
+<body>
+    <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
+    <script>
+        if (shortLink && links[shortLink]) {
+            document.getElementById("redirect-link").href = links[shortLink];
+        }
+    </script>
+</body>
+</html>
