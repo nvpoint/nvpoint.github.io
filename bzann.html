@@ -3,80 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bzan's World</title>
+    <title>Love & Bunny</title>
     <style>
         body {
-            background: linear-gradient(45deg, #ff758c, #ff7eb3, #87CEFA, #ffcc70);
+            background: radial-gradient(circle, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
             background-size: 400% 400%;
-            animation: gradientMove 8s infinite alternate ease-in-out;
-            overflow: hidden;
-            margin: 0;
-            height: 100vh;
+            animation: bgMove 6s infinite alternate ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            font-family: monospace;
-            font-size: 20px;
-            white-space: pre;
+            height: 100vh;
+            margin: 0;
             position: relative;
+            overflow: hidden;
         }
 
-        @keyframes gradientMove {
+        @keyframes bgMove {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
 
-        .rabbit {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            animation: moveRabbit 3s linear infinite alternate;
+        .photo-container {
+            position: relative;
+            width: 320px;
+            height: 800px;
         }
 
-        @keyframes moveRabbit {
-            0% { transform: translateX(-50px); }
-            100% { transform: translateX(50px); }
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .hearts {
+        .bunny {
             position: absolute;
-            top: 0;
-            left: 0;
+            font-size: 24px;
+            animation: moveBunny 5s linear infinite;
+        }
+
+        @keyframes moveBunny {
+            0% { top: 0; left: 0; }
+            25% { top: 0; left: 100%; transform: translateX(-100%); }
+            50% { top: 100%; left: 100%; transform: translate(-100%, -100%); }
+            75% { top: 100%; left: 0; transform: translateY(-100%); }
+            100% { top: 0; left: 0; }
+        }
+
+        .hearts, .flowers {
+            position: absolute;
             width: 100%;
             height: 100%;
         }
 
-        .heart {
+        .heart, .flower {
             position: absolute;
-            color: rgba(255, 0, 0, 0.2);
-            font-size: 30px;
-            animation: floatHeart 5s infinite alternate ease-in-out;
+            opacity: 0.5;
+            font-size: 24px;
+            animation: float 6s infinite alternate ease-in-out;
         }
 
-        @keyframes floatHeart {
-            0% { transform: translateY(0px) scale(1); opacity: 0.3; }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0.3; }
             100% { transform: translateY(-50px) scale(1.5); opacity: 0.8; }
         }
     </style>
 </head>
 <body>
-
     <div class="hearts">
-        <div class="heart" style="top: 20%; left: 10%;">❤️</div>
-        <div class="heart" style="top: 40%; left: 30%;">💖</div>
-        <div class="heart" style="top: 60%; left: 50%;">❤️</div>
-        <div class="heart" style="top: 80%; left: 70%;">💖</div>
-        <div class="heart" style="top: 10%; left: 80%;">❤️</div>
+        <div class="heart" style="top: 10%; left: 20%;">❤️</div>
+        <div class="heart" style="top: 30%; left: 50%;">💖</div>
+        <div class="heart" style="top: 60%; left: 70%;">❤️</div>
+        <div class="heart" style="top: 80%; left: 10%;">💖</div>
+    </div>
+    <div class="flowers">
+        <div class="flower" style="top: 15%; left: 30%;">🌸</div>
+        <div class="flower" style="top: 50%; left: 60%;">🌷</div>
+        <div class="flower" style="top: 75%; left: 40%;">🌺</div>
     </div>
 
-    <div class="rabbit">
-        BZAN  BZAN  BZAN  
-        BZAN  (\\(\\  BZAN  
-        BZAN  ( -.-)  BZAN  
-        BZAN  o__(")(")  BZAN  
-        BZAN  BZAN  BZAN  
+    <div class="photo-container">
+        <img class="photo" src="image.png" alt="Photo">
+        <div class="bunny">🐰</div>
     </div>
-
 </body>
 </html>
