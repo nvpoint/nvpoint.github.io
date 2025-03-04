@@ -3,37 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        // Danh sách short link và URL đích
-        const links = {
-            "google": "https://www.google.com",
-            "github": "https://github.com",
-            "chatgpt": "https://chat.openai.com",
-            "fb": "https://www.facebook.com/phongngu00"
-        };
-
-        // Lấy phần slug từ URL (loại bỏ dấu `/` ở đầu và cuối)
-        let path = window.location.pathname;
-        path = path.replace(/^\/+|\/+$/g, "").toLowerCase();
-
-        // Debug: In ra console để kiểm tra
-        console.log("Path detected:", path);
-
-        // Nếu slug có trong danh sách, redirect
-        if (links[path]) {
-            window.location.href = links[path];
-        } else {
-            document.body.innerHTML = "<h2>404 - Short link not found!</h2>";
-        }
-    </script>
+    <title>Redirecting to Google...</title>
+    <meta http-equiv="refresh" content="0; url=https://www.google.com">
 </head>
 <body>
-    <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
-    <script>
-        if (links[path]) {
-            document.getElementById("redirect-link").href = links[path];
-        }
-    </script>
+    <p>If you are not redirected, <a href="https://www.google.com">click here</a>.</p>
 </body>
 </html>
