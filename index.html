@@ -13,13 +13,12 @@
             "fb": "https://www.facebook.com/phongngu00"
         };
 
-        // Lấy tham số 'link' từ URL (ví dụ: ?link=google)
-        const urlParams = new URLSearchParams(window.location.search);
-        const shortLink = urlParams.get("link");
+        // Lấy phần slug từ URL (ví dụ: /google)
+        const path = window.location.pathname.replace("/", "").toLowerCase();
 
-        // Nếu short link có trong danh sách, redirect
-        if (shortLink && links[shortLink]) {
-            window.location.href = links[shortLink];
+        // Nếu slug có trong danh sách, redirect
+        if (links[path]) {
+            window.location.href = links[path];
         } else {
             document.write("<h2>404 - Short link not found!</h2>");
         }
@@ -28,8 +27,8 @@
 <body>
     <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
     <script>
-        if (shortLink && links[shortLink]) {
-            document.getElementById("redirect-link").href = links[shortLink];
+        if (links[path]) {
+            document.getElementById("redirect-link").href = links[path];
         }
     </script>
 </body>
