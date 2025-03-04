@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-   <script>
-    // Danh sách short link và URL đích
-    const links = {
-        "google": "https://www.google.com",
-        "github": "https://github.com",
-        "chatgpt": "https://chat.openai.com",
-        "fb": "https://www.facebook.com/phongngu00"
-    };
+    <script>
+        // Danh sách short link và URL đích
+        const links = {
+            "google": "https://www.google.com",
+            "github": "https://github.com",
+            "chatgpt": "https://chat.openai.com",
+            "fb": "https://www.facebook.com/phongngu00"
+        };
 
-    // Xử lý đường dẫn để bỏ phần repo GitHub Pages nếu có
-    let path = window.location.pathname;
-    path = path.replace("/nvpoint.github.io/", "").replace("/", "").toLowerCase();
+        // Lấy phần slug từ URL (loại bỏ ký tự `/`)
+        let path = window.location.pathname;
+        path = path.replace(/^\/+|\/+$/g, "").toLowerCase();
 
-    // Nếu slug có trong danh sách, redirect, nếu không thì báo lỗi
-    if (links[path]) {
-        window.location.href = links[path];
-    } else {
-        document.write("<h2>404 - Short link not found!</h2>");
-    }
-</script>
-
+        // Nếu slug có trong danh sách, redirect
+        if (links[path]) {
+            window.location.href = links[path];
+        } else {
+            document.body.innerHTML = "<h2>404 - Short link not found!</h2>";
+        }
+    </script>
 </head>
 <body>
     <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
