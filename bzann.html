@@ -6,7 +6,9 @@
     <title>Bzan's World</title>
     <style>
         body {
-            background: linear-gradient(to top, #87CEFA, #fff);
+            background: linear-gradient(45deg, #ff758c, #ff7eb3, #87CEFA, #ffcc70);
+            background-size: 400% 400%;
+            animation: gradientMove 8s infinite alternate ease-in-out;
             overflow: hidden;
             margin: 0;
             height: 100vh;
@@ -15,31 +17,66 @@
             justify-content: center;
             flex-direction: column;
             font-family: monospace;
-            font-size: 16px;
+            font-size: 20px;
             white-space: pre;
+            position: relative;
         }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         .rabbit {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
             animation: moveRabbit 3s linear infinite alternate;
         }
+
         @keyframes moveRabbit {
             0% { transform: translateX(-50px); }
             100% { transform: translateX(50px); }
         }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 0, 0, 0.2);
+            font-size: 30px;
+            animation: floatHeart 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0px) scale(1); opacity: 0.3; }
+            100% { transform: translateY(-50px) scale(1.5); opacity: 0.8; }
+        }
     </style>
 </head>
 <body>
-    <div class="rabbit">
-        (\\(\\  
-        ( -.-)  
-        o__(\")(\")
-    </div>
-    
-    <div>
-        ☁️☁️☁️        ☁️  ☁️☁️  
+
+    <div class="hearts">
+        <div class="heart" style="top: 20%; left: 10%;">❤️</div>
+        <div class="heart" style="top: 40%; left: 30%;">💖</div>
+        <div class="heart" style="top: 60%; left: 50%;">❤️</div>
+        <div class="heart" style="top: 80%; left: 70%;">💖</div>
+        <div class="heart" style="top: 10%; left: 80%;">❤️</div>
     </div>
 
-    <div>
-        🌻     🌸       🌹      🌼
+    <div class="rabbit">
+        BZAN  BZAN  BZAN  
+        BZAN  (\\(\\  BZAN  
+        BZAN  ( -.-)  BZAN  
+        BZAN  o__(")(")  BZAN  
+        BZAN  BZAN  BZAN  
     </div>
+
 </body>
 </html>
