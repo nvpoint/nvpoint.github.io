@@ -40,15 +40,19 @@
         .bunny {
             position: absolute;
             font-size: 24px;
-            animation: hopBunny 1.5s infinite ease-in-out;
             bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 10px;
+            transform: scale(1);
+            animation: bunnyMoves 8s infinite;
         }
 
-        @keyframes hopBunny {
-            0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, -20px); }
+        @keyframes bunnyMoves {
+            0% { transform: translateX(0) scale(1); content: "🐰"; }
+            20% { transform: translateX(30px) scale(1.1); content: "🏃"; } /* Chạy */
+            40% { transform: translateX(60px) scale(1); content: "🧎‍♂️"; } /* Ngồi */
+            60% { transform: translateX(30px) rotate(10deg); content: "💃"; } /* Lắc lư */
+            80% { transform: translateX(0) scale(0.9); content: "🛌"; } /* Nằm */
+            100% { transform: translateX(-20px) scale(1); content: "🐰"; } /* Về vị trí cũ */
         }
 
         .elements {
@@ -70,7 +74,6 @@
             100% { transform: translateY(-40px) scale(1.2); opacity: 1; }
         }
 
-        /* Random hóa vị trí */
         .heart:nth-child(odd), .flower:nth-child(even), .cloud:nth-child(odd) {
             animation-duration: 3.5s;
         }
@@ -82,7 +85,6 @@
 </head>
 <body>
     <div class="elements">
-        <!-- Nhiều tim -->
         <div class="heart" style="top: 5%; left: 10%;">❤️</div>
         <div class="heart" style="top: 15%; left: 80%;">💖</div>
         <div class="heart" style="top: 25%; left: 40%;">❤️</div>
@@ -93,7 +95,6 @@
         <div class="heart" style="top: 75%; left: 60%;">💖</div>
         <div class="heart" style="top: 85%; left: 50%;">❤️</div>
 
-        <!-- Nhiều hoa -->
         <div class="flower" style="top: 10%; left: 5%;">🌸</div>
         <div class="flower" style="top: 20%; left: 85%;">🌷</div>
         <div class="flower" style="top: 30%; left: 35%;">🌺</div>
@@ -104,7 +105,6 @@
         <div class="flower" style="top: 80%; left: 55%;">🌷</div>
         <div class="flower" style="top: 90%; left: 45%;">🌺</div>
 
-        <!-- Mây -->
         <div class="cloud" style="top: 5%; left: 30%;">☁️</div>
         <div class="cloud" style="top: 15%; left: 60%;">☁️</div>
         <div class="cloud" style="top: 25%; left: 10%;">☁️</div>
@@ -114,7 +114,7 @@
 
     <div class="photo-container">
         <img class="photo" src="https://raw.githubusercontent.com/nvpoint/nvpoint.github.io/main/bzan.jpg" alt="Photo">
-        <div class="bunny">🐰</div>
+        <div class="bunny"></div>
     </div>
 </body>
 </html>
