@@ -13,9 +13,12 @@
             "fb": "https://www.facebook.com/phongngu00"
         };
 
-        // Lấy phần slug từ URL (loại bỏ ký tự `/`)
+        // Lấy phần slug từ URL (loại bỏ dấu `/` ở đầu và cuối)
         let path = window.location.pathname;
         path = path.replace(/^\/+|\/+$/g, "").toLowerCase();
+
+        // Debug: In ra console để kiểm tra
+        console.log("Path detected:", path);
 
         // Nếu slug có trong danh sách, redirect
         if (links[path]) {
